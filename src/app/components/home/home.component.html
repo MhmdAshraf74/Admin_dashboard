@@ -84,30 +84,32 @@
   </div>
 
   <div class="container">
-    <div class="row">
+    <div class="row mb-2">
       <!-- Line Chart -->
 
       <div class="col-12 col-lg-8 p-2 rounded-sm">
-        <div class="line bg-white" [chart]="lineChart"></div>
+        <div class="line" [chart]="lineChart"></div>
       </div>
 
       <!-- Top Products -->
       <div
-        class="col-lg-4 col-12 bg-white rounded-sm p-2"
+        class="col-lg-4 col-12 rounded-sm p-2"
         style="box-sizing: border-box"
       >
-        <div
-          class="p-2 mb-2 d-flex justify-content-between"
-          id="navbar-example2"
-        >
-          <span>Top Products</span>
-          <span><a href="#">See All</a></span>
+        <div class="p-2 bg-white h-100">
+          <div
+            class="p-2 mb-2 d-flex justify-content-between"
+            id="navbar-example2"
+          >
+            <span>Top Products</span>
+            <span><a href="#">See All</a></span>
+          </div>
         </div>
       </div>
     </div>
     <div class="row">
       <!-- Pie Chart -->
-      <div class="col-lg-4 p-2 bg-danger rounded-sm">
+      <div class="col-lg-4 p-2 bg-white rounded-sm">
         <div class="bg-white p-2">
           <h3>Orders Status</h3>
           <div class="p-2 container">
@@ -116,8 +118,8 @@
         </div>
       </div>
       <!-- Orders tables -->
-      <div class="col-12 col-lg-8  ">
-        <div class="p-2 bg-white">
+      <div class="col-12 col-lg-8">
+        <div class="p-2 bg-white h-100">
           <div class="d-flex justify-content-between p-2 align-items-center">
             <h3>Recent Orders</h3>
             <a href=""><span>See All</span></a>
