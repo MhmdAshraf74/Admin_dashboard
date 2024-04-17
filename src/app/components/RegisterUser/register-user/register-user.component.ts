@@ -1,36 +1,39 @@
 import { Component, inject } from '@angular/core';
-import { AuthServiceService } from '../../services/auth-service.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthServiceService } from '../../../services/auth-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register-user',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './register-user.component.html',
+  styleUrl: './register-user.component.css'
 })
-export class LoginComponent {
+export class RegisterUserComponent {
   fb= inject(FormBuilder);
   http = inject(HttpClient);
   router = inject(Router)
+
   constructor(
-    public authService : AuthServiceService,
+    public authService : AuthServiceService
   ){}
   form = this.fb.nonNullable.group({
-    
+    userName:['',Validators.required],
     email:['',Validators.required],
     password:['',Validators.required]
   })
+
   onSubmit(): void {
     const rowForm = this.form.getRawValue();
-    this.authService.SignIn(rowForm.email,rowForm.password).then
+    this.authService.SignUp(rowForm.email,rowForm.password).then
     (()=>this.router.navigateByUrl('/home')).catch((err)=>{
       console.log(err);
 
     })
   }
+
 
 }

@@ -8,6 +8,7 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { LoginComponent } from './components/login/login.component';
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { RegisterUserComponent } from './components/RegisterUser/register-user/register-user.component';
 
 
 
@@ -17,7 +18,7 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [
 
-      {path:"", redirectTo:"home" , pathMatch:"full"},
+      {path:"", redirectTo:"login" , pathMatch:"full"},
       { path: 'home', component: HomeComponent },
 
       { path: 'addproduct', component: AddproductComponent },
@@ -29,9 +30,11 @@ export const routes: Routes = [
 
 
      
+      
+      { path: 'login', component: LoginComponent },
     ],
   },
-  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterUserComponent },
   { path: '**', component: NotfoundComponent },
 ];
 

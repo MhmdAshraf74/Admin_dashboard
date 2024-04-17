@@ -31,9 +31,9 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "https://code.highcharts.com/modules/exporting.js",
-              "https://code.highcharts.com/modules/export-data.js",
-              "https://code.highcharts.com/modules/accessibility.js"
+              "node_modules/highcharts/modules/exporting.js",
+              "node_modules/highcharts/modules/export-data.js",
+              "node_modules/highcharts/modules/accessibility.js"
 
             ],
             "server": "src/main.server.ts",

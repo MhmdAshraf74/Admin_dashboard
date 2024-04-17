@@ -1,0 +1,140 @@
+<section class="">
+    <div class="container mt-5  rounded-sm p-4" style="width:fit-content; align-items: center;">
+  
+            <div class="bg-white border p-4 rounded-lg" >
+                <form style="width: 23rem" class="row justify-content-between" [formGroup]="form"  >
+                    
+  
+                    <h3 class=" mb-3 pb-3" style="letter-spacing: 1px; text-align: center;">Sign Up</h3>
+                    <div class="mb-2">
+                      <div class="col-md-6">
+                          <label for="inputEmail4" class="form-label">userName</label>
+                          <input type="text" class="form-control" formControlName="userName" id="inputEmail4">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="inputEmail4" class="form-label">Email</label>
+                          <input type="email" class="form-control" formControlName="email" >
+                        </div>
+                        <div class="col-md-6">
+                          <label for="inputPassword4" class="form-label">Password</label>
+                          <input type="password" class="form-control" formControlName="password" id="inputPassword4">
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6">
+                      <label for="inputEmail4" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputPassword4" class="form-label">Last Name</label>
+                      <input type="text" class="form-control" id="inputPassword4">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputEmail4" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="inputEmail4">
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <label for="inputState" class="form-label">Country</label>
+                      <select id="inputState" class="form-select">
+                        <option selected>Egypt</option>
+                        <option>Canda</option>
+                        <option>USA</option>
+                        <option>Saudi Arabia</option>
+                        <option>United Arab Emirate</option>
+      
+      
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputPassword4" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="inputPassword4">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="inputPassword4" class="form-label">Confirm Password</label>
+                      <input type="password" class="form-control" id="inputPassword4">
+                    </div> -->
+                    
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          Iagree the terms and Conditions
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 my-2">
+                      <button type="submit" class="btn btn-primary" (click)="onSubmit()" >Sign up</button>
+                    </div>
+                    <div class="">
+                      <span
+                        >Already have an account?
+                        <a href="/login"><span class="redirect" >Log In</span></a></span>
+                    </div>
+        
+                    <!-- <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example18">Email address</label>
+                      <input type="email" id="form2Example18" class="form-control form-control-lg" required />               
+                    </div>
+        
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example28" >Password</label>
+                      <input type="password" id="form2Example28" class="form-control form-control-lg" required />
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <input type="checkbox" >  <label for="" class=""> Remember Me</label>
+                      </div>
+                      <a href="">Forgot Password ?</a>
+                    </div>
+        
+                    <div class="pt-1 mb-4"  style="width:fit-content; align-items: center;">
+                      <button class="btn btn-info btn-lg btn-block " type="button"  >Login</button>
+                       &nbsp; &nbsp;&nbsp;
+                     
+                    </div> -->
+        
+                  </form>
+            </div>
+      </div>
+  </section>
+  <!-- <div class="displayTable">
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h3>Sign Up</h3>
+        <div class="formGroup">
+          <input
+            type="email"
+            class="formControl"
+            placeholder="Email Address"
+            #userEmail
+            required
+          />
+        </div>
+        <div class="formGroup">
+          <input
+            type="password"
+            class="formControl"
+            placeholder="Password"
+            #userPwd
+            required
+          />
+        </div>
+        <div class="formGroup">
+          <input
+            type="button"
+            class="btn btnPrimary"
+            value="Sign Up"
+            (click)="authService.SignUp(userEmail.value, userPwd.value)"
+          />
+        </div>
+        <div class="formGroup">
+          <span class="or"><span class="orInner">Or</span></span>
+        </div>
+      <div class="redirectToLogin">
+        <span
+          >Already have an account?
+          <span class="redirect" routerLink="/sign-in">Log In</span></span
+        >
+      </div>
+    </div>
+  </div> -->
