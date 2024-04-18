@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Iuser } from '../models/user-interface';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -28,10 +28,8 @@ export class AuthServiceService {
         localStorage.setItem('user',JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
 
-      } else {
-        localStorage.setItem('user', 'null')
-        JSON.parse(localStorage.getItem('user')!)
       }
+      
     })
   }
  
@@ -46,60 +44,63 @@ export class AuthServiceService {
         console.log(result);
        
         
-        this.SetUserData(result.user);
+        // this.SetUserData(result.user);
       })
       .catch((error) => {
         window.alert(error.message);
       });
   }
  
-  SignIn(email: string, password: string) {
-    return this.afAuth
+  SignIn(email: string, password: string) : Observable<void> {
+    const promis= this.afAuth
       .signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.SetUserData(result.user);
+      .then(() => {
+        // this.SetUserData(result.user);
 
-        console.log(this.SetUserData);
+        console.log(arguments);
         this.afAuth.authState.subscribe((user) => {
+          console.log(user);
           if (user) {
-            this.router.navigate(['home']);
+            this.router.navigateByUrl('/home')
           }
         });
       })
       .catch((error) => {
         window.alert(error.message);
       });
+      return from(promis)
   }
  
-  SetUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    );
-    const userData: Iuser = {
-      firstName: user.firstName,
-      lastName:user.lastName,
-      uId: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-    };
-    return userRef.set(userData, {
-      merge: true,
-    });
-  }
- 
-  // SignOut() {
-  //   return this.afAuth.signOut().then(() => {
-  //     localStorage.removeItem('user');
-  //     this.router.navigate(['login']);
+  // SetUserData(user: any) {
+  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+  //     `users/${user.uid}`
+  //   );
+  //   const userData: Iuser = {
+  //     firstName: user.firstName,
+  //     lastName:user.lastName,
+  //     uId: user.uid,
+  //     email: user.email,
+  //     displayName: user.displayName,
+  //     photoURL: user.photoURL,
+  //     emailVerified: user.emailVerified,
+  //   };
+  //   return userRef.set(userData, {
+  //     merge: true,
   //   });
   // }
+ 
+  SignOut() {
+    return this.afAuth.signOut().then(() => {
+      localStorage.removeItem('user');
+      this.router.navigate(['login']);
+    });
+  }
  
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null;
   }
+
 }
 
 

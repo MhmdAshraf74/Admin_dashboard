@@ -9,17 +9,21 @@ import { LoginComponent } from './components/login/login.component';
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { RegisterUserComponent } from './components/RegisterUser/register-user/register-user.component';
+import { authGuard } from './services/auth.guard';
 
 
 
 export const routes: Routes = [
+  
+  {path:"", redirectTo:"login" , pathMatch:"full"},
+  {path:"login", component: LoginComponent},
   {
     path: '',
     component: MainLayoutComponent,
+    canActivate:[authGuard],
     children: [
 
-      {path:"", redirectTo:"login" , pathMatch:"full"},
-      { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent, },
 
       { path: 'addproduct', component: AddproductComponent },
       { path: 'addadmin', component: AddAdminComponent },
@@ -31,10 +35,10 @@ export const routes: Routes = [
 
      
       
-      { path: 'login', component: LoginComponent },
     ],
   },
-  { path: 'register', component: RegisterUserComponent },
+ 
+  // { path: 'register', component: RegisterUserComponent },
   { path: '**', component: NotfoundComponent },
 ];
 
